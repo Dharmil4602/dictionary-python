@@ -13,7 +13,7 @@ data = json.load(open("data.json"))
 
 def translate(word):
     word = word.lower()
-    
+
     if word in data:
         return data[word]
 
@@ -31,4 +31,12 @@ def translate(word):
 
 word = input("Enter the word you want the meaning of: \n")
 output = translate(word)
-print(output)
+
+## we have written below code for improving the interface of those words having more than 1 meaning
+if type(output) == list:
+    for item in output:
+        print(item)
+        print("\n")
+else:
+    print(output)
+    print("\n")
